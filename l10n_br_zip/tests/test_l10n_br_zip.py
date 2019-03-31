@@ -39,7 +39,7 @@ class L10nBRZipTest(TransactionCase):
             self.company.street, 'Rua Donicia',
             'Error in method zip_search to mapping field street.')
         self.assertEquals(
-            self.company.city_id.name, u'Florianópolis',
+            self.company.city_id.name, 'Florianópolis',
             'Error in method zip_search to mapping field city.')
 
     def test_search_zip_code_by_other_fields_company(self):
