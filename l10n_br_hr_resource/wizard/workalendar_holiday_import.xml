@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 KMEE - Luis Felipe Miléo <mileo@kmee.com.br>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+        <record id="view_workalendar_holiday_import" model="ir.ui.view">
+            <field name="name">Import Holidays</field>
+            <field name="model">wizard.workalendar.holiday.import</field>
+            <field name="arch" type="xml">
+                <form string="Import Brazilian Holidays">
+                    <div class="oe_title">
+                        <separator string="Import Public Holidays from"/>
+                    </div>
+
+                    <group col="4">
+                        <field name="start_date" class="oe_inline" readonly="0" nolabel="1"/>
+                        <span class="oe_inline" >até</span>
+                        <field name="end_date" class="oe_inline" readonly="1" nolabel="1"/>
+                    </group>
+
+                    <group>
+                        <group string="Interval">
+                            <field name="interval_type" />
+                            <field name="interval_number" />
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="holiday_import" string="Import" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+</odoo>
