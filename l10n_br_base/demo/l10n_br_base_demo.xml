@@ -16,10 +16,10 @@
         <field name="name">Intel do Brasil</field>
         <field name="legal_name">Intel do Brasil</field>
         <field name="cnpj_cpf">86.144.802/0001-90</field>
-        <field name="street">Avenida Doutor Chucri Zaidan</field>
+        <field name="street_name">Avenida Doutor Chucri Zaidan</field>
         <field name="street_number">920</field>
         <field name="district">Vila Cordeiro</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_sp"/>
         <field name="city_id" ref="l10n_br_base.city_3550308"/>
         <field name="zip">04583-110</field>
@@ -36,10 +36,10 @@
         <field name="name">AMD do Brasil</field>
         <field name="legal_name">AMD South America Ltda</field>
         <field name="cnpj_cpf">62.228.384/0001-51</field>
-        <field name="street">Rua Samuel Morse</field>
+        <field name="street_name">Rua Samuel Morse</field>
         <field name="street_number">134</field>
         <field name="district">Brooklin</field>
-        <field name="street2">15º andar - Conjunto 151</field>
+        <field name="street_number2">15º andar - Conjunto 151</field>
         <field name="state_id" ref="base.state_br_sp"/>
         <field name="city_id" ref="l10n_br_base.city_3550308"/>
         <field name="zip">04576-060</field>
@@ -56,10 +56,10 @@
         <field name="name">LG do Brasil</field>
         <field name="legal_name">LG ELECTRONICS DA AMAZÔNIA LTDA</field>
         <field name="cnpj_cpf">92.737.124/0001-72</field>
-        <field name="street">Avenida Javari</field>
+        <field name="street_name">Avenida Javari</field>
         <field name="street_number">s/n</field>
         <field name="district">Distrito Industrial</field>
-        <field name="street2">Lote 2.45/1E</field>
+        <field name="street_number2">Lote 2.45/1E</field>
         <field name="state_id" ref="base.state_br_am"/>
         <field name="city_id" ref="l10n_br_base.city_1302603"/>
         <field name="zip">69075-110</field>
@@ -77,10 +77,10 @@
         <field name="name">Samsung Recife</field>
         <field name="legal_name">Samsung Recife LTDA</field>
         <field name="cnpj_cpf">21.717.475/0001-73</field>
-        <field name="street">Av. República do Líbano</field>
+        <field name="street_name">Av. República do Líbano</field>
         <field name="street_number">251</field>
         <field name="district">Centro</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_pe"/>
         <field name="city_id" ref="l10n_br_base.city_2611606"/>
         <field name="zip">51110-160</field>
@@ -98,10 +98,10 @@
         <field name="name">Positivo Informatica</field>
         <field name="legal_name">Positivo Informatica S/A</field>
         <field name="cnpj_cpf">77.256.611/0001-20</field>
-        <field name="street">Rua Senador Accioly Filho</field>
+        <field name="street_name">Rua Senador Accioly Filho</field>
         <field name="street_number">5200</field>
         <field name="district">Cidade Industrial</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_pr"/>
         <field name="city_id" ref="l10n_br_base.city_4106902"/>
         <field name="zip">81310-000</field>
@@ -119,10 +119,10 @@
         <field name="name">Dell Computadores do Brasil</field>
         <field name="legal_name">Dell Computadores do Brasil LTDA</field>
         <field name="cnpj_cpf">73.623.891/0001-06</field>
-        <field name="street">Avenida Ipiranga</field>
+        <field name="street_name">Avenida Ipiranga</field>
         <field name="street_number">6681</field>
         <field name="district">Partenon</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_rs"/>
         <field name="city_id" ref="l10n_br_base.city_4314902"/>
         <field name="zip">90619-900</field>
@@ -140,10 +140,10 @@
         <field name="name">Info Bahia</field>
         <field name="legal_name">Informatica Bahia LTDA</field>
         <field name="cnpj_cpf">14.685.381/0001-02</field>
-        <field name="street">Rua Francisco Muniz Barreto</field>
+        <field name="street_name">Rua Francisco Muniz Barreto</field>
         <field name="street_number">2</field>
         <field name="district">Terreiro de Jesus</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_ba"/>
         <field name="city_id" ref="l10n_br_base.city_2927408"/>
         <field name="zip">40835-650</field>
@@ -161,10 +161,10 @@
         <field name="name">Informatica Manaus</field>
         <field name="legal_name">Informatica Manaus</field>
         <field name="cnpj_cpf">38.633.837/0001-40</field>
-        <field name="street">Avenida Javari</field>
+        <field name="street_name">Avenida Javari</field>
         <field name="street_number">s/n</field>
         <field name="district">Distrito Industrial</field>
-        <field name="street2">Lote 4.45/5E</field>
+        <field name="street_number2">Lote 4.45/5E</field>
         <field name="state_id" ref="base.state_br_am"/>
         <field name="city_id" ref="l10n_br_base.city_1302603"/>
         <field name="zip">69075-110</field>
@@ -182,10 +182,10 @@
         <field name="name">Cliente 1 SP Contribuinte</field>
         <field name="legal_name">Cliente 1 SP</field>
         <field name="cnpj_cpf">81.493.979/0001-89</field>
-        <field name="street">Rua Samuel Morse</field>
+        <field name="street_name">Rua Samuel Morse</field>
         <field name="street_number">135</field>
         <field name="district">Brooklin</field>
-        <field name="street2">20º andar - Conjunto 151</field>
+        <field name="street_number2">20º andar - Conjunto 151</field>
         <field name="state_id" ref="base.state_br_sp"/>
         <field name="city_id" ref="l10n_br_base.city_3550308"/>
         <field name="zip">04576-060</field>
@@ -202,10 +202,10 @@
         <field name="name">Cliente 2 -SP - Simples Nacional</field>
         <field name="legal_name">Cliente 2 - SP</field>
         <field name="cnpj_cpf">12.046.835/0001-61</field>
-        <field name="street">Avenida Doutor Chucri Zaidan</field>
+        <field name="street_name">Avenida Doutor Chucri Zaidan</field>
         <field name="street_number">950</field>
         <field name="district">Vila Cordeiro</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_sp"/>
         <field name="city_id" ref="l10n_br_base.city_3550308"/>
         <field name="zip">04583-110</field>
@@ -222,10 +222,10 @@
         <field name="name">Cliente 3 - Z/F Manaus - Contribuinte</field>
         <field name="legal_name">Cliente 3 - Manaus</field>
         <field name="cnpj_cpf">46.081.676/0001-58</field>
-        <field name="street">Avenida Javari</field>
+        <field name="street_name">Avenida Javari</field>
         <field name="street_number">s/n</field>
         <field name="district">Distrito Industrial</field>
-        <field name="street2">Lote 8.45/30E</field>
+        <field name="street_number2">Lote 8.45/30E</field>
         <field name="state_id" ref="base.state_br_am"/>
         <field name="city_id" ref="l10n_br_base.city_1302603"/>
         <field name="zip">69075-110</field>
@@ -243,10 +243,10 @@
         <field name="name">Cliente 4 - Z/F Manaus - Simples Nacional</field>
         <field name="legal_name">Cliente 4 - Manaus</field>
         <field name="cnpj_cpf">84.148.732/0001-13</field>
-        <field name="street">Avenida Javari</field>
+        <field name="street_name">Avenida Javari</field>
         <field name="street_number">s/n</field>
         <field name="district">Distrito Industrial</field>
-        <field name="street2">Lote 9.45/15E</field>
+        <field name="street_number2">Lote 9.45/15E</field>
         <field name="state_id" ref="base.state_br_am"/>
         <field name="city_id" ref="l10n_br_base.city_1302603"/>
         <field name="zip">69075-110</field>
@@ -264,10 +264,10 @@
         <field name="name">Cliente 5 - Contribuinte - PE</field>
         <field name="legal_name">Cliente 5 PE</field>
         <field name="cnpj_cpf">14.753.702/0001-50</field>
-        <field name="street">Av. República do Líbano</field>
+        <field name="street_name">Av. República do Líbano</field>
         <field name="street_number">255</field>
         <field name="district">Centro</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_pe"/>
         <field name="city_id" ref="l10n_br_base.city_2611606"/>
         <field name="zip">51110-160</field>
@@ -285,10 +285,10 @@
         <field name="name">Cliente 6 - Simples Nacional- PE</field>
         <field name="legal_name">Cliente 6 Recife LTDA</field>
         <field name="cnpj_cpf">97.449.840/0001-78</field>
-        <field name="street">Av. República do Líbano</field>
+        <field name="street_name">Av. República do Líbano</field>
         <field name="street_number">275</field>
         <field name="district">Centro</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_pe"/>
         <field name="city_id" ref="l10n_br_base.city_2611606"/>
         <field name="zip">51110-160</field>
@@ -306,10 +306,10 @@
         <field name="name">Cliente 7 RS - Contribuinte</field>
         <field name="legal_name">Cliente 7 - RS</field>
         <field name="cnpj_cpf">43.266.887/0001-77</field>
-        <field name="street">Avenida Ipiranga</field>
+        <field name="street_name">Avenida Ipiranga</field>
         <field name="street_number">6690</field>
         <field name="district">Partenon</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_rs"/>
         <field name="city_id" ref="l10n_br_base.city_4314902"/>
         <field name="zip">90619-900</field>
@@ -327,10 +327,10 @@
         <field name="name">Cliente 8 RS - Simples Nacional</field>
         <field name="legal_name">Cliente 7 - RS</field>
         <field name="cnpj_cpf">32.406.080/0001-76</field>
-        <field name="street">Avenida Ipiranga</field>
+        <field name="street_name">Avenida Ipiranga</field>
         <field name="street_number">6600</field>
         <field name="district">Partenon</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_rs"/>
         <field name="city_id" ref="l10n_br_base.city_4314902"/>
         <field name="zip">90619-900</field>
@@ -357,7 +357,7 @@
         <field name="country_id" ref="base.br"/>
         <field name="street_number">586</field>
         <field name="phone">(21) 3010 9965</field>
-        <field name="street">Rua Paulo Dias</field>
+        <field name="street_name">Rua Paulo Dias</field>
         <field name="city_id" ref="l10n_br_base.city_3501152"/>
         <field name="state_id" ref="base.state_br_sp"/>
         <field name="image_1920" type="base64" file="l10n_br_base/static/img/res_partner_akretion-image.jpg"/>
@@ -378,8 +378,8 @@
         <field name="country_id" ref="base.br"/>
         <field name="street_number">47</field>
         <field name="phone">(21) 2516-2954</field>
-        <field name="street">Rua Acre</field>
-        <field name="street2">sala 1310</field>
+        <field name="street_name">Rua Acre</field>
+        <field name="street_number2">sala 1310</field>
         <field name="website">http://www.akretion.com</field>
         <field name="state_id" ref="base.state_br_rj"/>
          <field name="image_1920" type="base64" file="l10n_br_base/static/img/res_partner_akretion-image.jpg"/>
@@ -389,10 +389,10 @@
         <field name="name">Cliente 9 MG - PJ Não Contribuinte</field>
         <field name="legal_name">Cliente 9 MG</field>
         <field name="cnpj_cpf">26.355.289/0001-55</field>
-        <field name="street">R PRESIDENTE ROOSEVELT</field>
+        <field name="street_name">R PRESIDENTE ROOSEVELT</field>
         <field name="street_number">63</field>
         <field name="district">Morro Chic</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_mg"/>
         <field name="city_id" ref="l10n_br_base.city_3132404"/>
         <field name="zip">37500-070</field>
@@ -409,10 +409,10 @@
         <field name="name">Cliente 10 MG - PF Não Contribuinte</field>
         <field name="legal_name">Cliente 10 PF</field>
         <field name="cnpj_cpf">276.288.360-11</field>
-        <field name="street">R PRESIDENTE ROOSEVELT</field>
+        <field name="street_name">R PRESIDENTE ROOSEVELT</field>
         <field name="street_number">63</field>
         <field name="district">Morro Chic</field>
-        <field name="street2"></field>
+        <field name="street_number2"></field>
         <field name="state_id" ref="base.state_br_mg"/>
         <field name="city_id" ref="l10n_br_base.city_3132404"/>
         <field name="zip">37500-070</field>
@@ -429,8 +429,6 @@
         <field name="title" ref="res_partner_title_pvt_ltd"/>
         <field name="cnpj_cpf">23.130.935/0001-98</field>
         <field eval="0" name="employee"/>
-        <field eval="1" name="customer"/>
-        <field eval="1" name="supplier"/>
         <field name="is_company" eval="1"/>
         <field eval="1" name="active"/>
         <field name="legal_name">KMEE INFORMATICA LTDA</field>
@@ -440,10 +438,10 @@
         <field name="country_id" ref="base.br"/>
         <field name="street_number">07</field>
         <field name="phone">(11) 3090 9303</field>
-        <field name="street">R Coronel Renno</field>
+        <field name="street_name">R Coronel Renno</field>
         <field name="city_id" ref="l10n_br_base.city_3132404"/>
         <field name="state_id" ref="base.state_br_mg"/>
-        <field name="image" type="base64" file="l10n_br_base/static/img/res_partner_kmee.png"/>
+        <field name="image_1920" type="base64" file="l10n_br_base/static/img/res_partner_kmee.png"/>
     </record>
 
 </odoo>
