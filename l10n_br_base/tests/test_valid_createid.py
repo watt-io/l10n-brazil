@@ -1,5 +1,7 @@
 # @ 2017 Akretion - www.akretion.com.br -
 #   Clément Mombereau <clement.mombereau@akretion.com.br>
+# @ 2020 KMEE - www.kmee.com.br
+#   Luis Felipe Mileo <mileo@kmee.com.br>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
@@ -113,7 +115,7 @@ class ValidCreateIdTest(TransactionCase):
         """Try do create id with correct CNPJ and correct Inscricao Estadual"""
         try:
             company = self.env["res.company"].create(self.company_valid)
-        except:
+        except ValidationError:
             assert (
                 company
             ), "Error when using .create() even with valid \
@@ -137,7 +139,7 @@ class ValidCreateIdTest(TransactionCase):
         """Try do create id with correct CPF and correct Inscricao Estadual"""
         try:
             partner = self.env["res.partner"].create(self.partner_valid)
-        except:
+        except ValidationError:
             assert (
                 partner
             ), "Error when using .create() even with valid CPF \

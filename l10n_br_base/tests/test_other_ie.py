@@ -1,10 +1,13 @@
 # @ 2018 Akretion - www.akretion.com.br -
 #   Magno Costa <magno.costa@akretion.com.br>
+# @ 2020 KMEE - www.kmee.com.br
+#   Luis Felipe Mileo <mileo@kmee.com.br>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
 import logging
 
+from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
 from odoo.tools import mute_logger
 
@@ -73,7 +76,7 @@ class OtherIETest(TransactionCase):
                     ]
                 }
             )
-        except:
+        except ValidationError:
             result = False
 
         self.assertFalse(
@@ -96,7 +99,7 @@ class OtherIETest(TransactionCase):
                     ]
                 }
             )
-        except:
+        except ValidationError:
             result = False
         self.assertFalse(result, "Error to check included invalid IE.")
 
@@ -116,7 +119,7 @@ class OtherIETest(TransactionCase):
                     ]
                 }
             )
-        except:
+        except ValidationError:
             result = False
         self.assertFalse(
             result,
