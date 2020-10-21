@@ -11,8 +11,8 @@ from odoo.exceptions import ValidationError
 _logger = logging.getLogger(__name__)
 
 try:
-    from erpbrasil.base.fiscal import cnpj_cpf, ie
     from erpbrasil.base import misc
+    from erpbrasil.base.fiscal import cnpj_cpf, ie
 except ImportError:
     _logger.error("Biblioteca erpbrasil.base não instalada")
 
@@ -105,8 +105,10 @@ class Partner(models.Model):
             if not record.cnpj_cpf:
                 return
 
-            allow_cnpj_multi_ie = record.env["ir.config_parameter"].sudo().get_param(
-                "l10n_br_base_allow_cnpj_multi_ie", default=True
+            allow_cnpj_multi_ie = (
+                record.env["ir.config_parameter"]
+                .sudo()
+                .get_param("l10n_br_base_allow_cnpj_multi_ie", default=True)
             )
 
             if record.parent_id:
@@ -142,9 +144,10 @@ class Partner(models.Model):
         result = True
         for record in self:
 
-            disable_cnpj_ie_validation = record.env["ir.config_parameter"].sudo()\
-                .get_param(
-                "l10n_br_base.disable_cpf_cnpj_validation", default=False
+            disable_cnpj_ie_validation = (
+                record.env["ir.config_parameter"]
+                .sudo()
+                .get_param("l10n_br_base.disable_cpf_cnpj_validation", default=False)
             )
             if not disable_cnpj_ie_validation:
                 if record.country_id:
@@ -173,8 +176,10 @@ class Partner(models.Model):
         for record in self:
             result = True
 
-            disable_ie_validation = record.env["ir.config_parameter"].sudo().get_param(
-                "l10n_br_base.disable_ie_validation", default=False
+            disable_ie_validation = (
+                record.env["ir.config_parameter"]
+                .sudo()
+                .get_param("l10n_br_base.disable_ie_validation", default=False)
             )
             if not disable_ie_validation:
                 if record.inscr_est and record.is_company and record.state_id:

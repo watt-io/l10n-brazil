@@ -14,8 +14,10 @@ _auto_install_l10n_original = account._auto_install_l10n
 def _auto_install_l10n_br_generic_module(env):
     country_code = env.user.company_id.country_id.code
     if country_code and country_code.upper() == "BR":
-        if hasattr(env.user.company_id, 'tax_framework') and \
-                env.user.company_id.tax_framework == '3':
+        if (
+            hasattr(env.user.company_id, "tax_framework")
+            and env.user.company_id.tax_framework == "3"
+        ):
             module_name_domain = [("name", "=", "l10n_br_coa_generic")]
         else:
             module_name_domain = [("name", "=", "l10n_br_coa_simple")]

@@ -4,8 +4,7 @@
 from openupgradelib import openupgrade
 
 _column_renames = {
-    'res_partner': [
-        ('street', 'street_name')],
+    "res_partner": [("street", "street_name")],
 }
 
 

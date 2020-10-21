@@ -14,8 +14,8 @@ from odoo.tools import config
 _logger = logging.getLogger(__name__)
 
 try:
-    from erpbrasil.base.fiscal import cnpj_cpf
     from erpbrasil.base import misc
+    from erpbrasil.base.fiscal import cnpj_cpf
 except ImportError:
     _logger.error("Biblioteca erpbrasil.base não instalada")
 
@@ -169,7 +169,7 @@ class Company(models.Model):
 
     @api.onchange("city_id")
     def _onchange_city_id(self):
-        """ Ao alterar o campo l10n_br_city_id que é um campo relacional
+        """Ao alterar o campo l10n_br_city_id que é um campo relacional
         com o l10n_br_base.city que são os municípios do IBGE, copia o nome
         do município para o campo city que é o campo nativo do módulo base
         para manter a compatibilidade entre os demais módulos que usam o
