@@ -11,8 +11,7 @@ from odoo import api, tools, SUPERUSER_ID
 _auto_install_l10n_original = account._auto_install_l10n
 
 
-def _auto_install_l10n_br_generic_module(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
+def _auto_install_l10n_br_generic_module(env):
     country_code = env.user.company_id.country_id.code
     if country_code and country_code.upper() == "BR":
         if hasattr(env.user.company_id, 'tax_framework') and \
@@ -32,7 +31,7 @@ def _auto_install_l10n_br_generic_module(cr, registry):
         )
         module_ids.sudo().button_install()
     else:
-        _auto_install_l10n_original(cr, registry)
+        _auto_install_l10n_original(env)
 
 
 account._auto_install_l10n = _auto_install_l10n_br_generic_module
