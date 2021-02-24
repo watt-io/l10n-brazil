@@ -67,7 +67,7 @@ class Partner(models.Model):
         string="Others State Tax Number",
         comodel_name="state.tax.numbers",
         inverse_name="partner_id",
-        ondelete="cascade",
+        # ondelete="cascade",
     )
 
     inscr_mun = fields.Char(string="Municipal Tax Number", size=18)
