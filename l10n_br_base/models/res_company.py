@@ -130,7 +130,7 @@ class Company(models.Model):
         inverse_name="partner_id",
         compute="_compute_l10n_br_data",
         inverse="_inverse_state_tax_number_ids",
-        ondelete="cascade",
+        # ondelete="cascade",
     )
 
     inscr_mun = fields.Char(
