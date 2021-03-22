@@ -110,8 +110,11 @@ class Partner(models.Model):
             allow_cnpj_multi_ie = (
                 record.env["ir.config_parameter"]
                 .sudo()
-                .get_param("l10n_br_base_allow_cnpj_multi_ie", default=True)
+                .get_param("l10n_br_base_allow.cnpj_multi_ie", default=True)
             )
+
+            if allow_cnpj_multi_ie:
+                return
 
             if record.parent_id:
                 domain += [
