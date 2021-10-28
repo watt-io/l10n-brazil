@@ -63,7 +63,7 @@ class Partner(models.Model):
 
             # se encontrar CNPJ iguais
             if record.env["res.partner"].search(domain):
-                if cnpj_cpf.validar_cnpj(record.cnpj_cpf):
+                if cnpj_cpf.validar(record.cnpj_cpf):
                     if allow_cnpj_multi_ie == "True":
                         for partner in record.env["res.partner"].search(domain):
                             if (
