@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+
     <record id="l10n_br_base_bank_form" model="ir.ui.view">
         <field name="name">l10n_br_base.bank.form</field>
         <field name="model">res.bank</field>
@@ -17,6 +18,7 @@
             </field>
         </field>
     </record>
+
     <record id="l10n_br_base_bank_tree" model="ir.ui.view">
         <field name="name">l10n_br_base.bank.tree</field>
         <field name="model">res.bank</field>
@@ -27,4 +29,5 @@
             </field>
         </field>
     </record>
+
 </odoo>

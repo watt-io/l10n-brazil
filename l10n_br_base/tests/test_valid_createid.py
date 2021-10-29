@@ -1,20 +1,19 @@
 # @ 2017 Akretion - www.akretion.com.br -
 #   Clément Mombereau <clement.mombereau@akretion.com.br>
-# @ 2020 KMEE - www.kmee.com.br
-#   Luis Felipe Mileo <mileo@kmee.com.br>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+from odoo.tests import SavepointCase
 
 
-class ValidCreateIdTest(TransactionCase):
+class ValidCreateIdTest(SavepointCase):
     """Test if ValidationError is raised well during create({})"""
 
-    def setUp(self):
-        super(ValidCreateIdTest, self).setUp()
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
 
-        self.company_valid = {
+        cls.company_valid = {
             "name": "Company Test 1",
             "legal_name": "Company Testc 1 Ltda",
             "cnpj_cpf": "02.960.895/0001-31",
@@ -23,9 +22,9 @@ class ValidCreateIdTest(TransactionCase):
             "street_number": "955",
             "street2": "Portão 1",
             "district": "Jardim da Saudade",
-            "state_id": self.env.ref("base.state_br_es").id,
-            "city_id": self.env.ref("l10n_br_base.city_3205002").id,
-            "country_id": self.env.ref("base.br").id,
+            "state_id": cls.env.ref("base.state_br_es").id,
+            "city_id": cls.env.ref("l10n_br_base.city_3205002").id,
+            "country_id": cls.env.ref("base.br").id,
             "city": "Serra",
             "zip": "29161-695",
             "phone": "+55 27 2916-1695",
@@ -33,7 +32,7 @@ class ValidCreateIdTest(TransactionCase):
             "website": "www.companytest.com.br",
         }
 
-        self.company_invalid_cnpj = {
+        cls.company_invalid_cnpj = {
             "name": "Company Test 2",
             "legal_name": "Company Testc 2 Ltda",
             "cnpj_cpf": "14.018.406/0001-93",
@@ -42,9 +41,9 @@ class ValidCreateIdTest(TransactionCase):
             "street_number": "955",
             "street2": "Portão 1",
             "district": "Jardim da Saudade",
-            "state_id": self.env.ref("base.state_br_es").id,
-            "city_id": self.env.ref("l10n_br_base.city_3205002").id,
-            "country_id": self.env.ref("base.br").id,
+            "state_id": cls.env.ref("base.state_br_es").id,
+            "city_id": cls.env.ref("l10n_br_base.city_3205002").id,
+            "country_id": cls.env.ref("base.br").id,
             "city": "Serra",
             "zip": "29161-695",
             "phone": "+55 27 2916-1695",
@@ -52,7 +51,7 @@ class ValidCreateIdTest(TransactionCase):
             "website": "www.companytest.com.br",
         }
 
-        self.company_invalid_inscr_est = {
+        cls.company_invalid_inscr_est = {
             "name": "Company Test 3",
             "legal_name": "Company Testc 3 Ltda",
             "cnpj_cpf": "31.295.101/0001-60",
@@ -61,9 +60,9 @@ class ValidCreateIdTest(TransactionCase):
             "street_number": "955",
             "street2": "Portão 1",
             "district": "Jardim da Saudade",
-            "state_id": self.env.ref("base.state_br_es").id,
-            "city_id": self.env.ref("l10n_br_base.city_3205002").id,
-            "country_id": self.env.ref("base.br").id,
+            "state_id": cls.env.ref("base.state_br_es").id,
+            "city_id": cls.env.ref("l10n_br_base.city_3205002").id,
+            "country_id": cls.env.ref("base.br").id,
             "city": "Serra",
             "zip": "29161-695",
             "phone": "+55 27 2916-1695",
@@ -71,7 +70,7 @@ class ValidCreateIdTest(TransactionCase):
             "website": "www.companytest.com.br",
         }
 
-        self.partner_valid = {
+        cls.partner_valid = {
             "name": "Partner Test 1",
             "legal_name": "Partner Testc 1 Ltda",
             "cnpj_cpf": "734.419.622-06",
@@ -80,9 +79,9 @@ class ValidCreateIdTest(TransactionCase):
             "street_number": "955",
             "street2": "Portão 1",
             "district": "Jardim da Saudade",
-            "state_id": self.env.ref("base.state_br_es").id,
-            "city_id": self.env.ref("l10n_br_base.city_3205002").id,
-            "country_id": self.env.ref("base.br").id,
+            "state_id": cls.env.ref("base.state_br_es").id,
+            "city_id": cls.env.ref("l10n_br_base.city_3205002").id,
+            "country_id": cls.env.ref("base.br").id,
             "city": "Serra",
             "zip": "29161-695",
             "phone": "+55 27 2916-1695",
@@ -90,7 +89,7 @@ class ValidCreateIdTest(TransactionCase):
             "website": "www.partnertest.com.br",
         }
 
-        self.partner_invalid_cpf = {
+        cls.partner_invalid_cpf = {
             "name": "Partner Test 2",
             "legal_name": "Partner Testc 2 Ltda",
             "cnpj_cpf": "734.419.622-07",
@@ -99,9 +98,9 @@ class ValidCreateIdTest(TransactionCase):
             "street_number": "955",
             "street2": "Portão 1",
             "district": "Jardim da Saudade",
-            "state_id": self.env.ref("base.state_br_es").id,
-            "city_id": self.env.ref("l10n_br_base.city_3205002").id,
-            "country_id": self.env.ref("base.br").id,
+            "state_id": cls.env.ref("base.state_br_es").id,
+            "city_id": cls.env.ref("l10n_br_base.city_3205002").id,
+            "country_id": cls.env.ref("base.br").id,
             "city": "Serra",
             "zip": "29161-695",
             "phone": "+55 27 2916-1695",
@@ -114,8 +113,12 @@ class ValidCreateIdTest(TransactionCase):
     def test_comp_valid(self):
         """Try do create id with correct CNPJ and correct Inscricao Estadual"""
         try:
-            company = self.env["res.company"].create(self.company_valid)
-        except ValidationError:
+            company = (
+                self.env["res.company"]
+                .with_context(tracking_disable=True)
+                .create(self.company_valid)
+            )
+        except Exception:
             assert (
                 company
             ), "Error when using .create() even with valid \
@@ -125,21 +128,29 @@ class ValidCreateIdTest(TransactionCase):
         """Test if ValidationError raised during .create() with invalid CNPJ
         and correct Inscricao Estadual"""
         with self.assertRaises(ValidationError):
-            self.env["res.company"].create(self.company_invalid_cnpj)
+            self.env["res.company"].with_context(tracking_disable=True).create(
+                self.company_invalid_cnpj
+            )
 
     def test_comp_invalid_inscr_est(self):
         """Test if ValidationError raised with correct CNPJ
         and invalid Inscricao Estadual"""
         with self.assertRaises(ValidationError):
-            self.env["res.company"].create(self.company_invalid_inscr_est)
+            self.env["res.company"].with_context(tracking_disable=True).create(
+                self.company_invalid_inscr_est
+            )
 
     # Tests on partners
 
     def test_part_valid(self):
         """Try do create id with correct CPF and correct Inscricao Estadual"""
         try:
-            partner = self.env["res.partner"].create(self.partner_valid)
-        except ValidationError:
+            partner = (
+                self.env["res.partner"]
+                .with_context(tracking_disable=True)
+                .create(self.partner_valid)
+            )
+        except Exception:
             assert (
                 partner
             ), "Error when using .create() even with valid CPF \
@@ -149,7 +160,9 @@ class ValidCreateIdTest(TransactionCase):
         """Test if ValidationError raised during .create() with invalid CPF
         and correct Inscricao Estadual"""
         with self.assertRaises(ValidationError):
-            self.env["res.partner"].create(self.partner_invalid_cpf)
+            self.env["res.partner"].with_context(tracking_disable=True).create(
+                self.partner_invalid_cpf
+            )
 
 
 # No test on Inscricao Estadual for partners with CPF

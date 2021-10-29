@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+
     <record id="l10n_br_base_res_city_tree" model="ir.ui.view">
         <field name="name">l10n_br_base.res.city.tree</field>
         <field name="model">res.city</field>
@@ -12,4 +13,5 @@
             </field>
         </field>
     </record>
+
 </odoo>

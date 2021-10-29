@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+
     <!--
     Views: res.country
     -->
@@ -16,6 +17,7 @@
             </field>
         </field>
     </record>
+
     <!--
     Views: res.country.state
     -->
@@ -29,4 +31,5 @@
             </field>
         </field>
     </record>
+
 </odoo>

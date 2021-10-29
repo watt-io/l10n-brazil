@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+
     <record id="l10n_br_base_res_config_settings_form" model="ir.ui.view">
         <field name="name">res.config.settings.form</field>
         <field name="model">res.config.settings</field>
@@ -20,8 +21,7 @@
                                     for="allow_cnpj_multi_ie"
                                 />
                                 <div class="text-muted">
-                                    Allows you to create more than one partner with the
-                                    same CNPJ and different State Tax Number
+                                    Allows you to create more than one partner with the same CNPJ and different State Tax Number
                                 </div>
                             </div>
                         </div>
@@ -38,8 +38,7 @@
                                     for="module_l10n_br_zip"
                                 />
                                 <div class="text-muted">
-                                    Use Brazilian postal service API to search partner
-                                    address using postal zip code
+                                    Use Brazilian postal service API to search partner address using postal zip code
                                 </div>
                             </div>
                         </div>
@@ -56,7 +55,7 @@
                                     for="disable_cpf_cnpj_validation"
                                 />
                                 <div class="text-muted">
-                                    Select to disable CPF and CNPJ validation
+                                   Select to disable CPF and CNPJ validation
                                 </div>
                             </div>
                         </div>
@@ -73,7 +72,7 @@
                                     for="disable_ie_validation"
                                 />
                                 <div class="text-muted">
-                                    Select to disable IE validation
+                                   Select to disable IE validation
                                 </div>
                             </div>
                         </div>
@@ -82,4 +81,5 @@
             </xpath>
         </field>
     </record>
+
 </odoo>

@@ -1,6 +1,8 @@
 # Copyright (C) 2009  Renato Lima - Akretion
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from .hooks import pre_init_hook
+
 from . import models
 from . import tests
 
@@ -12,11 +14,11 @@ _auto_install_l10n_original = account._auto_install_l10n
 
 
 def _auto_install_l10n_br_generic_module(env):
-    country_code = env.user.company_id.country_id.code
+    country_code = env.company.country_id.code
     if country_code and country_code.upper() == "BR":
         if (
             hasattr(env.user.company_id, "tax_framework")
-            and env.user.company_id.tax_framework == "3"
+            and env.company.tax_framework == "3"
         ):
             module_name_domain = [("name", "=", "l10n_br_coa_generic")]
         else:
