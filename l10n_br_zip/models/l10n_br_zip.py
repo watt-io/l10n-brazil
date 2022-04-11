@@ -1,5 +1,4 @@
-# Copyright (C) 2012  Renato Lima (Akretion)                                  #
-# Copyright (C) 2020  Luis Felipe Mileo <mileo@kmee.com.br>
+# Copyright (C) 2012  Renato Lima (Akretion)
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import logging
@@ -12,18 +11,18 @@ _logger = logging.getLogger(__name__)
 try:
     from erpbrasil.base import misc
 except ImportError:
-    _logger.error("Biblioteca erpbrasil.base não instalada")
+    _logger.error("Library erpbrasil.base not installed!")
 
 _logger = logging.getLogger(__name__)
 
 try:
-    import pycep_correios
+    from pycep_correios import WebService, get_address_from_cep
 except ImportError:
     _logger.warning("Library PyCEP-Correios not installed !")
 
 
 class L10nBrZip(models.Model):
-    """ Este objeto persiste todos os códigos postais que podem ser
+    """Este objeto persiste todos os códigos postais que podem ser
     utilizados para pesquisar e auxiliar o preenchimento dos endereços.
     """
 
@@ -31,15 +30,15 @@ class L10nBrZip(models.Model):
     _description = "CEP"
     _rec_name = "zip_code"
 
-    zip_code = fields.Char(string="CEP", size=8, required=True)
+    zip_code = fields.Char(string="CEP", required=True)
 
-    street_type = fields.Char(string="Street Type", size=26)
+    street_type = fields.Char(string="Street Type")
 
-    zip_complement = fields.Char(string="Range", size=200)
+    zip_complement = fields.Char(string="Range")
 
-    street_name = fields.Char(string="Logradouro", size=72)
+    street_name = fields.Char(string="Logradouro")
 
-    district = fields.Char(string="District", size=72)
+    district = fields.Char(string="District")
 
     country_id = fields.Many2one(comodel_name="res.country", string="Country")
 
@@ -71,7 +70,11 @@ class L10nBrZip(models.Model):
             domain.append(("zip_code", "=", new_zip))
         else:
             if not state_id or not city_id or len(street_name or "") == 0:
-                raise UserError(_("Necessário informar Estado, município e logradouro"))
+                raise UserError(
+                    _(
+                        "It is necessary to inform the State, municipality and public place"
+                    )
+                )
 
             if country_id:
                 domain.append(("country_id", "=", country_id))
@@ -118,25 +121,37 @@ class L10nBrZip(models.Model):
     def _consultar_cep(self, zip_code):
         zip_str = misc.punctuation_rm(zip_code)
         try:
-            cep = pycep_correios.get_address_from_cep(zip_str)
+            cep_ws_providers = {
+                "apicep": WebService.APICEP,
+                "viacep": WebService.VIACEP,
+                "correios": WebService.CORREIOS,
+            }
+            cep_ws_provide = str(
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("l10n_zip.cep_ws_provider", default="correios")
+            )
+            cep = get_address_from_cep(
+                zip_str, webservice=cep_ws_providers.get(cep_ws_provide)
+            )
         except Exception as e:
-            raise UserError(_("Erro no PyCEP-Correios : ") + str(e))
+            raise UserError(_("Error in PyCEP-Correios: ") + str(e))
 
         values = {}
         if cep and any(cep.values()):
             # Search Brazil id
-            country = self.env["res.country"].search(
-                [("code", "=", "BR")], limit=1)
+            country = self.env["res.country"].search([("code", "=", "BR")], limit=1)
 
             # Search state with state_code and country id
-            state = self.env["res.country.state"].search([
-                ("code", "=", cep.get("uf")),
-                ("country_id", "=", country.id)], limit=1)
+            state = self.env["res.country.state"].search(
+                [("code", "=", cep.get("uf")), ("country_id", "=", country.id)], limit=1
+            )
 
             # search city with name and state
-            city = self.env["res.city"].search([
-                ("name", "=", cep.get("cidade")),
-                ("state_id.id", "=", state.id)], limit=1)
+            city = self.env["res.city"].search(
+                [("name", "=", cep.get("cidade")), ("state_id.id", "=", state.id)],
+                limit=1,
+            )
 
             values = {
                 "zip_code": zip_str,
@@ -162,7 +177,7 @@ class L10nBrZip(models.Model):
                 zip_code=obj.zip,
             )
         except AttributeError as e:
-            raise UserError(_("Erro a Carregar Atributo: ") + str(e))
+            raise UserError(_("Error loading attribute: ") + str(e))
 
         zips = self.search(domain)
 
@@ -208,7 +223,6 @@ class L10nBrZip(models.Model):
 
         return {
             "name": "Zip Search",
-            "view_type": "form",
             "view_mode": "form",
             "res_model": "l10n_br.zip.search",
             "view_id": False,
