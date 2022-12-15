@@ -120,48 +120,52 @@ class L10nBrZip(models.Model):
 
     def _consultar_cep(self, zip_code):
         zip_str = misc.punctuation_rm(zip_code)
+        values = {}
+
         try:
             cep_ws_providers = {
                 "apicep": WebService.APICEP,
                 "viacep": WebService.VIACEP,
                 "correios": WebService.CORREIOS,
             }
+
             cep_ws_provide = str(
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param("l10n_zip.cep_ws_provider", default="correios")
             )
+
             cep = get_address_from_cep(
                 zip_str, webservice=cep_ws_providers.get(cep_ws_provide)
             )
+
+            if cep and any(cep.values()):
+                # Search Brazil id
+                country = self.env["res.country"].search([("code", "=", "BR")], limit=1)
+
+                # Search state with state_code and country id
+                state = self.env["res.country.state"].search(
+                    [("code", "=", cep.get("uf")), ("country_id", "=", country.id)], limit=1
+                )
+
+                # search city with name and state
+                city = self.env["res.city"].search(
+                    [("name", "=", cep.get("cidade")), ("state_id.id", "=", state.id)],
+                    limit=1,
+                )
+
+                values = {
+                    "zip_code": zip_str,
+                    "street_name": cep.get("logradouro"),
+                    "zip_complement": cep.get("complemento"),
+                    "district": cep.get("bairro"),
+                    "city_id": city.id or False,
+                    "state_id": state.id or False,
+                    "country_id": country.id or False,
+                }
         except Exception as e:
-            raise UserError(_("Error in PyCEP-Correios: ") + str(e))
-
-        values = {}
-        if cep and any(cep.values()):
-            # Search Brazil id
-            country = self.env["res.country"].search([("code", "=", "BR")], limit=1)
-
-            # Search state with state_code and country id
-            state = self.env["res.country.state"].search(
-                [("code", "=", cep.get("uf")), ("country_id", "=", country.id)], limit=1
-            )
-
-            # search city with name and state
-            city = self.env["res.city"].search(
-                [("name", "=", cep.get("cidade")), ("state_id.id", "=", state.id)],
-                limit=1,
-            )
-
-            values = {
-                "zip_code": zip_str,
-                "street_name": cep.get("logradouro"),
-                "zip_complement": cep.get("complemento"),
-                "district": cep.get("bairro"),
-                "city_id": city.id or False,
-                "state_id": state.id or False,
-                "country_id": country.id or False,
-            }
+            # raise UserError(_("Error in PyCEP-Correios: ") + str(e))
+            pass
         return values
 
     @api.model
