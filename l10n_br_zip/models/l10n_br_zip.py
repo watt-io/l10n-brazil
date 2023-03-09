@@ -154,6 +154,11 @@ class L10nBrZip(models.Model):
                     limit=1,
                 )
 
+                if not city:
+                    raise UserError(
+                        f"Cidade não encontrada: {cep.get('cidade')}"
+                    )
+
                 values = {
                     "zip_code": zip_str,
                     "street_name": cep.get("logradouro"),
