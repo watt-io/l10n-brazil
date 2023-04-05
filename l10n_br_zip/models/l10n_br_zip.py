@@ -51,7 +51,7 @@ class L10nBrZip(models.Model):
     city_id = fields.Many2one(
         comodel_name="res.city",
         string="City",
-        required=True,
+        # required=True,
         domain="[('state_id','=',state_id)]",
     )
 
@@ -153,11 +153,6 @@ class L10nBrZip(models.Model):
                     [("name", "=", cep.get("cidade")), ("state_id.id", "=", state.id)],
                     limit=1,
                 )
-
-                if not city:
-                    raise UserError(
-                        f"Cidade não encontrada: {cep.get('cidade')}"
-                    )
 
                 values = {
                     "zip_code": zip_str,
