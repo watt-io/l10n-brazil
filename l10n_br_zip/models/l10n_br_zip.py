@@ -150,15 +150,15 @@ class L10nBrZip(models.Model):
 
                 # search city with name and state
                 city = self.env["res.city"].search(
-                    [("name", "=", cep.get("cidade")), ("state_id.id", "=", state.id)],
+                    [("name", "=", cep.get("city")), ("state_id.id", "=", state.id)],
                     limit=1,
                 )
 
                 values = {
                     "zip_code": zip_str,
-                    "street_name": cep.get("logradouro"),
-                    "zip_complement": cep.get("complemento"),
-                    "district": cep.get("bairro"),
+                    "street_name": cep.get("street"),
+                    "zip_complement": cep.get("complement"),
+                    "district": cep.get("district"),
                     "city_id": city.id or False,
                     "state_id": state.id or False,
                     "country_id": country.id or False,
