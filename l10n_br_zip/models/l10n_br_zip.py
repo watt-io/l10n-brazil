@@ -15,11 +15,13 @@ except ImportError:
 
 _logger = logging.getLogger(__name__)
 
-try:
-    from brazilcep import WebService, get_address_from_cep
-except ImportError:
-    _logger.warning("Library brazilcep not installed !")
+from odoo.addons.l10n_br_zip.tools import pycep_correios
 
+# try:
+#     from pycep_correios import WebService, get_address_from_cep
+# except ImportError:
+#     _logger.warning("Library PyCEP-Correios not installed !")
+#
 
 class L10nBrZip(models.Model):
     """Este objeto persiste todos os códigos postais que podem ser
@@ -123,21 +125,19 @@ class L10nBrZip(models.Model):
         values = {}
 
         try:
-            cep_ws_providers = {
-                "apicep": WebService.APICEP,
-                "viacep": WebService.VIACEP,
-                "correios": WebService.CORREIOS,
-            }
+            # cep_ws_providers = {
+            #     "apicep": WebService.APICEP,
+            #     "viacep": WebService.VIACEP,
+            #     "correios": WebService.CORREIOS,
+            # }
+            #
+            # cep_ws_provide = str(
+            #     self.env["ir.config_parameter"]
+            #     .sudo()
+            #     .get_param("l10n_zip.cep_ws_provider", default="correios")
+            # )
 
-            cep_ws_provide = str(
-                self.env["ir.config_parameter"]
-                .sudo()
-                .get_param("l10n_zip.cep_ws_provider", default="correios")
-            )
-
-            cep = get_address_from_cep(
-                zip_str, webservice=cep_ws_providers.get(cep_ws_provide)
-            )
+            cep = pycep_correios.get_address_from_cep(zip_str)
 
             if cep and any(cep.values()):
                 # Search Brazil id
