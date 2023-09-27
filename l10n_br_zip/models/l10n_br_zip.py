@@ -150,15 +150,15 @@ class L10nBrZip(models.Model):
 
                 # search city with name and state
                 city = self.env["res.city"].search(
-                    [("name", "=", cep.get("city")), ("state_id.id", "=", state.id)],
+                    [("name", "in", [cep.get("city"), cep.get('cidade')]), ("state_id.id", "=", state.id)],
                     limit=1,
                 )
 
                 values = {
                     "zip_code": zip_str,
-                    "street_name": cep.get("street"),
-                    "zip_complement": cep.get("complement"),
-                    "district": cep.get("district"),
+                    "street_name": cep.get("street") or cep.get("logradouro"),
+                    "zip_complement": cep.get("complement") or cep.get("complemento"),
+                    "district": cep.get("district") or cep.get("bairro"),
                     "city_id": city.id or False,
                     "state_id": state.id or False,
                     "country_id": country.id or False,
@@ -192,12 +192,10 @@ class L10nBrZip(models.Model):
 
         # More than one ZIP was found
         elif len(zips) > 1:
-
             return self.create_wizard(obj, zips)
 
         # Address not found in local DB, search by PyCEP-Correios
-        elif not zips and obj.zip:
-
+        if obj.zip:
             cep_values = self._consultar_cep(obj.zip)
 
             if cep_values:
