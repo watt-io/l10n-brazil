@@ -22,6 +22,6 @@
     "demo": [
         # Some demo data is being loaded via post_init_hook in hook file
     ],
-    "installable": True,
+    "installable": False,
     "application": True,
 }

@@ -18,6 +18,6 @@
         "wizard/l10n_br_zip_search_view.xml",
         "security/ir.model.access.csv",
     ],
-    "installable": True,
+    "installable": False,
     "external_dependencies": {"python": ["pycep_correios"]},
 }
