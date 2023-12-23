@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "author": "Akretion, " "Odoo Community Association (OCA)",
     "website": "http://odoo-brasil.org",
-    "version": "13.0.1.0.0",
+    "version": "16.0.1.0.0",
     "maintainers": ["renatonlima", "mbcosta", "mileo"],
     "depends": ["l10n_br_base"],
     "data": [
@@ -18,6 +18,6 @@
         "wizard/l10n_br_zip_search_view.xml",
         "security/ir.model.access.csv",
     ],
-    "installable": False,
+    "installable": True,
     "external_dependencies": {"python": ["pycep_correios"]},
 }
