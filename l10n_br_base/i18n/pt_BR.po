@@ -15289,8 +15289,8 @@ msgstr "Moita Bonita"
 
 #. module: l10n_br_base
 #: model:res.city,name:l10n_br_base.city_3530805
-msgid "Moji Mirim"
-msgstr "Moji Mirim"
+msgid "Mogi Mirim"
+msgstr "Mogi Mirim"
 
 #. module: l10n_br_base
 #: model:res.city,name:l10n_br_base.city_1504703
