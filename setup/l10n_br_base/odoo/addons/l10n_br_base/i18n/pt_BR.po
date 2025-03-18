@@ -15307,7 +15307,7 @@ msgstr ""
 
 #. module: l10n_br_base
 #: model:res.city,name:l10n_br_base.city_3530805
-msgid "Moji Mirim"
+msgid "Mogi Mirim"
 msgstr ""
 
 #. module: l10n_br_base
