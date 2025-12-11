@@ -57,7 +57,7 @@ def get_address_from_cep(cep):
         if response.status_code == 200:
             address = json.loads(response.text)
 
-            if 'error' in address and address['error']:
+            if 'erro' in address and address['erro']:
                 pass
 
             return {
