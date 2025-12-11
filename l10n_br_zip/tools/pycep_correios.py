@@ -18,8 +18,8 @@ URL = {
     PRODUCAO: 'https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl',  # noqa: E501
 }
 
-URL_GET_ADDRESS_FROM_CEP = 'http://www.viacep.com.br/ws/{}/json'
-URL_GET_CEP_FROM_ADDRESS = 'http://www.viacep.com.br/ws/{}/{}/{}/json'
+URL_GET_ADDRESS_FROM_CEP = 'https://viacep.com.br/ws/{}/json'
+URL_GET_CEP_FROM_ADDRESS = 'https://viacep.com.br/ws/{}/{}/{}/json'
 
 
 def format_cep(cep):
