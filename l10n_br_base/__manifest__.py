@@ -9,7 +9,7 @@
     "author": "Akretion,Odoo Community Association (OCA)",
     "maintainers": ["renatonlima", "rvalyi"],
     "website": "https://github.com/OCA/l10n-brazil",
-    "version": "16.0.1.0.1",
+    "version": "18.0.0.0.1",
     "depends": ["base", "base_setup", "base_address_extended"],
     "data": [
         "security/ir.model.access.csv",
@@ -38,7 +38,7 @@
         "demo/res_users_demo.xml",
     ],
     "installable": True,
-    "pre_init_hook": "pre_init_hook",
+    # "pre_init_hook": "pre_init_hook",
     "development_status": "Mature",
     "external_dependencies": {"python": ["num2words", "erpbrasil.base"]},
 }

@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "author": "Akretion, " "Odoo Community Association (OCA)",
     "website": "http://odoo-brasil.org",
-    "version": "16.0.1.0.0",
+    "version": "18.0.0.0.0",
     "maintainers": ["renatonlima", "mbcosta", "mileo"],
     "depends": ["l10n_br_base"],
     "data": [

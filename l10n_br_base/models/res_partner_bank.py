@@ -7,12 +7,12 @@ from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 BANK_ACCOUNT_TYPE = [
-    ("01", _("Conta corrente individual")),
-    ("02", _("Conta poupança individual")),
-    ("03", _("Conta depósito judicial/Depósito em consignação individual")),
-    ("11", _("Conta corrente conjunta")),
-    ("12", _("Conta poupança conjunta")),
-    ("13", _("Conta depósito judicial/Depósito em consignação conjunta")),
+    ("01", ("Conta corrente individual")),
+    ("02", ("Conta poupança individual")),
+    ("03", ("Conta depósito judicial/Depósito em consignação individual")),
+    ("11", ("Conta corrente conjunta")),
+    ("12", ("Conta poupança conjunta")),
+    ("13", ("Conta depósito judicial/Depósito em consignação conjunta")),
 ]
 
 

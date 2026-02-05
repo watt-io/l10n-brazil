@@ -34,6 +34,6 @@ class Cnae(models.Model):
         (
             "fiscal_cnae_code_uniq",
             "unique (code)",
-            _("CNAE already exists with this code !"),
+            ("CNAE already exists with this code !"),
         )
     ]
